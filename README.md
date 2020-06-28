@@ -4,9 +4,9 @@ Perspective.wiki is the wiki for Mind maps that everybody can edit.
 
 ## Table of contents
 
-1. Philosophy
-2. How we'll build it
-3. Contribute
+1. [Philosophy](https://github.com/swapkats/project-perspective#philosophy)
+2. [How we'll build it] (https://github.com/swapkats/project-perspective#how-well-build-it)
+3. [Contribute](https://github.com/swapkats/project-perspective#contribute)
 
 ## Philosophy
 
