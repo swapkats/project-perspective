@@ -10,7 +10,7 @@ Perspective.wiki is the wiki for Mind maps that everybody can edit.
 
 ## Philosophy
 
-> Knowledge wants to be spread. It should not be constrained.
+> Knowledge wants to be spread. It should not be constrained at any cost.
 
 Project Perspective is a free open source project whose single aim is to spread knowledge without any constraints. Like archive.org it tries to provide free public access to knowledge through mind maps.
 
