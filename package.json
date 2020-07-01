@@ -45,7 +45,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@types/three": "^0.103.2",
     "global": "^4.4.0",
+    "three": "^0.118.3",
     "tsc": "^1.20150623.0"
   }
 }
