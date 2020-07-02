@@ -28,7 +28,7 @@ Finally Perspective.wiki is a public wiki anyone can edit the mind maps and main
 
 1. Three.js
 2. Graphdb
-3. Typescript
+3. GraphQL
 4. Node
 
 
