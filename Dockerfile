@@ -1,5 +1,5 @@
 # Dockerfile (tag: v3)
-FROM node:0.12.7
+FROM node:12.8.2
 WORKDIR /tmp
 COPY package.json /tmp/
 RUN npm config set registry http://registry.npmjs.org/ && npm install
