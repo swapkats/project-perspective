@@ -42,8 +42,10 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@types/three": "^0.103.2",
+    "apollo-server": "^2.15.1",
     "global": "^4.4.0",
+    "neo4j-driver": "^4.1.0",
+    "neo4j-graphql-js": "^2.14.3",
     "three": "^0.118.3",
     "tsc": "^1.20150623.0"
   }
