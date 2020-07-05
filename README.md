@@ -40,11 +40,12 @@ Finally Perspective.wiki is a public wiki anyone can edit the mind maps and main
 ### Tecnical Stack
 
 1. Three.js
-2. Neo4j
-3. GraphQL
-4. Node
+2. Neo4j with Apollo
+3. Node
 
 
 ## Contribute
 
-Join our discord server https://discord.gg/zu7rU9
+Assign yourself stories from project board here https://github.com/swapkats/project-perspective/projects/1
+Stories are normally sorted by priotity.
+But before you pick up anything. Join our discord server https://discord.gg/zu7rU9 and say hi 
