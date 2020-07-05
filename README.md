@@ -40,9 +40,8 @@ Finally Perspective.wiki is a public wiki anyone can edit the mind maps and main
 ### Tecnical Stack
 
 1. Three.js
-2. Neo4j
-3. GraphQL
-4. Node
+2. Neo4j with Apollo
+3. Node
 
 
 ## Contribute
