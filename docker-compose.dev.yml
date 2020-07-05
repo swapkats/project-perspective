@@ -1,5 +1,16 @@
 version: '3'
 services:
+  server:
+    container_name: 'perspective_server'
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    volumes: 
+      - .:/usr/src/app/
+    command: yarn start:server:watch
+    ports:
+      - 5000:5000
+  
   db:
     container_name: 'perspective_db'
     image: 'neo4j:4.1.0'

@@ -1,1 +1,4 @@
 node_modules
+lib
+yarn-error.log
+public/app.bundle.js

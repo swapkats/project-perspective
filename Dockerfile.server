@@ -1,0 +1,5 @@
+# Dockerfile (tag: v3)
+FROM node:12.18.2
+WORKDIR /usr/src/app
+RUN yarn install
+EXPOSE 5000 
