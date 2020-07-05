@@ -1,0 +1,6 @@
+# Dockerfile (tag: v3)
+FROM node:12.18.2
+WORKDIR /usr/src/app
+RUN npm config set registry http://registry.npmjs.org/ && npm install
+CMD ["npm", "start"]
+EXPOSE 8080 
