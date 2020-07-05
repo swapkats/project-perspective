@@ -4,9 +4,22 @@ Perspective.wiki is the wiki for Mind maps that everybody can edit.
 
 ## Table of contents
 
+1. [Setup](https://github.com/swapkats/project-perspective#setup)
 1. [Philosophy](https://github.com/swapkats/project-perspective#philosophy)
 2. [How we'll build it](https://github.com/swapkats/project-perspective#how-well-build-it)
 3. [Contribute](https://github.com/swapkats/project-perspective#contribute)
+
+## Setup
+
+To Setup development locally, install docker and run.
+
+`
+make dev
+`
+
+Dev server runs on `localhost:8080`.
+
+Prod development is done via github actions to aws on every new release. 
 
 ## Philosophy
 
