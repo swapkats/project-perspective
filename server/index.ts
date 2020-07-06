@@ -6,7 +6,7 @@ import typeDefs from './typeDefs';
 const { ApolloServer } = require('apollo-server');
 
 const schema = makeAugmentedSchema({ typeDefs });
-const driver = neo4j.driver('bolt://localhost:7687');
+const driver = neo4j.driver('bolt://perspective_db:7687');
 const server = new ApolloServer({ schema, context: { driver } });
 
 server.listen(5000, '0.0.0.0').then((_: { url: string}) => {
