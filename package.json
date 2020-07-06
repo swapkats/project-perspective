@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "compile": "tsc ./server/index.ts && node lib/server/index.js",
-    "start:server": "forever start lib/server/index.js",
+    "compile": "ts-node -P tsconfig.json ./server/index.ts",
+    "start:server": "yarn build:server && pm2 start lib/index.js",
     "start:server:watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack",
+    "build:server": "tsc --outDir lib server/index.ts",
     "type-check": "tsc server/index.ts --noEmit",
     "type-check:watch": "yarn type-check -- --watch"
   },
@@ -50,6 +51,7 @@
     "neo4j-driver": "^4.1.0",
     "neo4j-graphql-js": "^2.14.3",
     "nodemon": "^2.0.4",
+    "pm2": "^4.4.0",
     "three": "^0.118.3",
     "ts-node": "^8.10.2",
     "tsc": "^1.20150623.0"

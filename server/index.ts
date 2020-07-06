@@ -1,13 +1,14 @@
-import { driver as neo4jDriver } from 'neo4j-driver';
+import neo4j from 'neo4j-driver';
+// @ts-ignore
 import { makeAugmentedSchema } from 'neo4j-graphql-js';
 import typeDefs from './typeDefs';
 
 const { ApolloServer } = require('apollo-server');
 
 const schema = makeAugmentedSchema({ typeDefs });
-const dbDriver = neo4jDriver('bolt://localhost:7687');
-const server = new ApolloServer({ schema, context: { dbDriver } });
+const driver = neo4j.driver('bolt://localhost:7687');
+const server = new ApolloServer({ schema, context: { driver } });
 
-server.listen(5000, '0.0.0.0').then(({ url }) => {
-  console.log(`GraphQL API ready at ${url}`);
+server.listen(5000, '0.0.0.0').then((_: { url: string}) => {
+  console.log(`GraphQL API ready at ${_.url}`); // eslint-disable-line
 });
