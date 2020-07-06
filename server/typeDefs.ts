@@ -1,10 +1,10 @@
 export default `
 type Map {
     root: String
-    nodes: [NODE] @relation(name: "HAS_NODE", direction: "OUT")
+    nodes: [Node] @relation(name: "IS", direction: "OUT")
 }
-type NODE {
+type Node {
     text: String
-    nodes: [NODE] @relation(name: "HAS_NODE", direction: "OUT")
+    nodes: [Node] @relation(name: "IS", direction: "OUT")
 }
 `;
