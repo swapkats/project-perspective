@@ -1,16 +1,16 @@
 version: '3'
 services:
   server:
-    container_name: 'perspective_server'
+    container_name: perspective_server
     build:
-      context: .
+      context: ../
       dockerfile: Dockerfile.server
     volumes: 
       - .:/usr/src/app/
-    command: yarn start:server:watch
+    command: yarn start:server
     ports:
       - 5000:5000
-  
+
   db:
     container_name: 'perspective_db'
     image: 'neo4j:4.1.0'
@@ -22,13 +22,9 @@ services:
       - 7687:7687
     environment: 
       NEO4J_AUTH: 'none'
-      
   web:
-    container_name: 'perspective_web'
     build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - .:/usr/src/app/
+      context: ../
+      build: config/Dockerfile
     ports:
-      - 8080:8080
+      - 80:80
