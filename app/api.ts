@@ -1,17 +1,25 @@
 import ApolloClient, { gql } from 'apollo-boost';
 
 const client = new ApolloClient({
-  uri: 'http://perspective_server:5000/',
+  uri: 'http://localhost:5000/',
 });
 
-export const getMap = () => client
+const getMap = ({ root = 'music' } = {}) => client
   .query({
     query: gql`
     {
-      rates(currency: "USD") {
-        currency
+      Map(root: $root) {
+        _id
+        root
+        nodes {
+          text
+        }
       }
     }
   `,
-  })
-  .then((result) => alert(result));
+    variables: {
+      root,
+    },
+  });
+
+export default { getMap };
