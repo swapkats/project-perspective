@@ -46,8 +46,10 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.9",
     "apollo-server": "^2.15.1",
     "global": "^4.4.0",
+    "graphql": "^14.7.0",
     "neo4j-driver": "^4.1.0",
     "neo4j-graphql-js": "^2.14.3",
     "nodemon": "^2.0.4",

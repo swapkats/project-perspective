@@ -3,8 +3,8 @@ services:
   server:
     container_name: 'perspective_server'
     build:
-      context: ../
-      dockerfile: config/Dockerfile.server
+      context: .
+      dockerfile: Dockerfile.server
     volumes: 
       - .:/usr/src/app/
     command: yarn start:server:watch
@@ -26,8 +26,12 @@ services:
   web:
     container_name: 'perspective_web'
     build:
-      context: ../
-      dockerfile: config/Dockerfile.dev
+      context: .
+      dockerfile: Dockerfile.dev
+    depends_on: 
+      - server
+    links: 
+      - server
     volumes:
       - .:/usr/src/app/
     ports:
