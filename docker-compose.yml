@@ -3,7 +3,7 @@ services:
   server:
     container_name: perspective_server
     build:
-      context: ../
+      context: .
       dockerfile: Dockerfile.server
     volumes: 
       - .:/usr/src/app/
@@ -23,8 +23,6 @@ services:
     environment: 
       NEO4J_AUTH: 'none'
   web:
-    build:
-      context: ../
-      build: config/Dockerfile
+    build: .
     ports:
       - 80:80

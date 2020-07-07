@@ -2,6 +2,7 @@ import {
   Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, MeshBasicMaterial, Mesh,
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import renderApp from './app';
 
 const scene = new Scene();
 
@@ -12,10 +13,7 @@ renderer.setClearColor('#111');
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const geometry = new BoxGeometry();
-const material = new MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new Mesh(geometry, material);
-scene.add(cube);
+renderApp({ scene });
 
 camera.position.z = 5;
 const controls = new OrbitControls(camera, renderer.domElement);
