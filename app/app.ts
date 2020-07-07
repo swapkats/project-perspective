@@ -1,12 +1,12 @@
 import { BoxGeometry, MeshBasicMaterial, Mesh } from 'three';
 import api from './api';
+import text from './elements/text';
 
 const app = ({ scene }) => {
-  const geometry = new BoxGeometry();
-  const material = new MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new Mesh(geometry, material);
-  scene.add(cube);
-  api.getMap();
+  api.getMap()
+    .then((res) => {
+      scene.add(text({ message: res.data.Map[0].root }));
+    });
 };
 
 export default app;

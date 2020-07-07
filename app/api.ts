@@ -4,11 +4,11 @@ const client = new ApolloClient({
   uri: 'http://localhost:5000/',
 });
 
-const getMap = ({ root = 'music' } = {}) => client
+const getMap = ({ root = '' } = {}) => client
   .query({
     query: gql`
     {
-      Map(root: $root) {
+      Map(root: "Music") {
         _id
         root
         nodes {
@@ -18,7 +18,7 @@ const getMap = ({ root = 'music' } = {}) => client
     }
   `,
     variables: {
-      root,
+      root
     },
   });
 
