@@ -10,14 +10,20 @@ const font = new Font(fontJson);
 
 @customElement('three-text')
 class ThreeText extends LitElement {
-  // constructor() {
-  //   super();
-
-    
-  // }
-
   @property()
   text = '';
+
+  @property({ type: Number, attribute: 'pos-x' })
+  posX = 0;
+
+  @property({ type: Number, attribute: 'pos-y' })
+  posY = 0;
+
+  @property({ type: Number, attribute: 'pos-z' })
+  posZ = 0;
+
+  @property({ type: Number })
+  size = 10;
 
   @property()
   color = '#fff';
@@ -31,20 +37,20 @@ class ThreeText extends LitElement {
       side: DoubleSide,
     });
 
-    const shapes = font.generateShapes(this.text, 100);
+    const shapes = font.generateShapes(this.text, this.size);
 
     const geometry = new ShapeBufferGeometry(shapes);
 
-    geometry.computeBoundingBox();
+    // geometry.computeBoundingBox();
 
-    const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+    // const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
 
-    geometry.translate(xMid, 0, 0);
+    geometry.translate(this.posX, this.posY, this.posZ);
 
     // make shape ( N.B. edge view not visible )
 
     const textMesh = new Mesh(geometry, matLite);
-    textMesh.position.z = -150;
+    textMesh.position.z = -100;
 
     sceneContext.useScene().add(textMesh);
   }
