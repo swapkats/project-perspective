@@ -35,13 +35,13 @@ It aims to move away from slow auditorial learning process like books to step in
 
 Finally Perspective.wiki is a public wiki anyone can edit the mind maps and maintain them just like wikipedia.
 
-## How we'll build it
-
-### Tecnical Stack
+### Stack
 
 1. Three.js
-2. Neo4j with Apollo
-3. Node
+2. Web components (Lit-Element)
+3. redux-observable & RxJS
+4. Neo4j with Apollo
+5. Node
 
 
 ## Contribute
