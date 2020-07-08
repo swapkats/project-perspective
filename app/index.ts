@@ -2,40 +2,49 @@ import {
   Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, MeshBasicMaterial, Mesh,
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import {
+  LitElement, html, css, customElement, property,
+} from 'lit-element';
 import renderApp from './app';
+import './elements/three-renderer';
+import './elements/three-scene';
+import './elements/three-camera';
+import './elements/three-controls';
+import './elements/map-scene';
 
-const scene = new Scene();
+@customElement('perspective-app')
+class PerspectiveApp extends LitElement {
+  constructor() {
+    super();
 
-const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    window.addEventListener('resize', this.handleResize);
+  }
 
-const renderer = new WebGLRenderer();
-renderer.setClearColor('#111');
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+  handleResize = () => {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+  }
 
-renderApp({ scene });
+  static getStyles() {
+    return css`
+      :host {
+        height: 100%;
+        width: 100%;
+      }
+    `;
+  }
 
-camera.position.z = 5;
-const controls = new OrbitControls(camera, renderer.domElement);
+  @property({ type: Number, attribute: false })
+  width = window.innerWidth;
 
-const render = () => {
-  renderer.render(scene, camera);
-};
+  @property({ type: Number, attribute: false })
+  height = window.innerHeight;
 
-const animate = () => {
-  requestAnimationFrame(animate);
-
-  // controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
-
-  render();
-};
-
-animate();
-
-controls.update();
-
-const resize = () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-};
-
-window.addEventListener('resize', resize);
+  render = () => html`<three-renderer clear-color="red" width="${this.width}" height="${this.height}">
+            <three-scene>
+              <map-scene map-id="Music"></map-scene>
+            </three-scene>
+            <three-camera></three-camera>
+            <three-controls></three-controls>
+    </three-renderer>`
+}

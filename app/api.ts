@@ -4,22 +4,23 @@ const client = new ApolloClient({
   uri: 'http://localhost:5000/',
 });
 
-const getMap = ({ root = '' } = {}) => client
+const getMap = (mapId: String) => client
   .query({
     query: gql`
-    {
-      Map(root: "Music") {
-        _id
-        root
-        nodes {
-          text
+      query GetMap($mapId: String) {
+        Map(root: $mapId) {
+          _id
+          root
+          nodes {
+            text
+          }
         }
       }
-    }
   `,
     variables: {
-      root
+      $mapId: mapId,
     },
-  });
+  })
+  .catch(console.error);
 
 export default { getMap };
