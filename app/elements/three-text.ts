@@ -4,7 +4,7 @@ import {
 // @ts-ignore
 import { LitElement, customElement, property } from 'lit-element';
 import fontJson from './fonts/helvetiker_regular.typeface.json';
-import sceneContext from '../sceneContext';
+import sceneContext from '../contexts/sceneContext';
 
 const font = new Font(fontJson);
 

@@ -2,9 +2,9 @@ import {
   LitElement, html, css, customElement, property, internalProperty,
 } from 'lit-element';
 import { WebGLRenderer, Scene, Camera } from 'three';
-import sceneContext from '../sceneContext';
-import cameraContext from '../cameraContext';
-import rendererContext from '../rendererContext';
+import sceneContext from '../contexts/sceneContext';
+import cameraContext from '../contexts/cameraContext';
+import rendererContext from '../contexts/rendererContext';
 
 @customElement('three-renderer')
 export default class ThreeRenderer extends LitElement {

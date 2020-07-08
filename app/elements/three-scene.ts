@@ -2,7 +2,7 @@ import {
   LitElement, html, css, customElement, property, internalProperty,
 } from 'lit-element';
 import { WebGLRenderer, Scene } from 'three';
-import sceneContext from '../sceneContext';
+import sceneContext from '../contexts/sceneContext';
 
 @customElement('three-scene')
 class ThreeScene extends LitElement {
