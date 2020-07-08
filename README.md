@@ -37,11 +37,11 @@ Finally Perspective.wiki is a public wiki anyone can edit the mind maps and main
 
 ### Stack
 
-1. Three.js
-2. Web components (Lit-Element)
-3. redux-observable & RxJS
-4. Neo4j with Apollo
-5. Node
+- Three.js
+- Web components(Lit-Element)
+- RxJS & redux-observable
+- Neo4j with Apollo
+- Node
 
 
 ## Contribute
