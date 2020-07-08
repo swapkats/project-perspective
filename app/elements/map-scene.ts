@@ -37,7 +37,7 @@ class MapScene extends LitElement {
   renderRootNode = () => html`<three-text text="${this.map.root}" posX="0" posY="0" posZ="0"></three.text>`
 
   renderSubNodes = () => html`
-    ${this.map.nodes.map((node, index) => html`<three-text text="${node.text}" pos-x="${Math.random() * 200}" pos-y="0" pos-z="0"></three.text>`)}
+    ${this.map.nodes.map((node, index) => html`<three-text text="${node.text}" pos-x="${Math.random() * 100}" pos-y="${Math.random() * 100}" pos-z="${Math.random() * -100}"></three.text>`)}
   `
 
   render = () => (this.map ? html`

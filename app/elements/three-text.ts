@@ -50,7 +50,6 @@ class ThreeText extends LitElement {
     // make shape ( N.B. edge view not visible )
 
     const textMesh = new Mesh(geometry, matLite);
-    textMesh.position.z = -100;
 
     sceneContext.useScene().add(textMesh);
   }

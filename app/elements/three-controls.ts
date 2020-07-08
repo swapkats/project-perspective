@@ -10,8 +10,8 @@ import rendererContext from '../contexts/rendererContext';
 export default class ThreeControls extends LitElement {
   firstUpdated() {
     super.firstUpdated();
-    // let controls = new OrbitControls(cameraContext.useCamera(), rendererContext.useRenderer().domElement);
+    let controls = new OrbitControls(cameraContext.useCamera(), rendererContext.useRenderer().domElement);
     // controls.update();
-    let control = new TransformControls( cameraContext.useCamera(), rendererContext.useRenderer().domElement );
+    // let control = new TransformControls( cameraContext.useCamera(), rendererContext.useRenderer().domElement );
   }
 }
