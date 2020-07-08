@@ -1,24 +1,27 @@
 import {
   LitElement, html, css, customElement, property,
 } from 'lit-element';
-import { WebGLRenderer } from 'three';
 import api from '../api';
-import './three-scene';
+import './three-text';
 
 @customElement('map-scene')
 class MapScene extends LitElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback = () => {
-    api.getMap()
+  firstUpdated = (_) => {
+    super.firstUpdated(_);
+    // if (this.map || !this.mapId) return;
+    api.getMap(this.mapId)
       .then((res) => {
+        // this.setAttribute('map', JSON.stringify(res.data.Map[0]));
         this.map = res.data.Map[0];
-      });
+        this.requestUpdate();
+      })
+      .catch(console.error);
   }
 
-  @property({ attribute: false })
+  @property({ attribute: 'map-id' })
+  mapId = null;
+
+  @property({ type: Object, attribute: false })
   map = null;
 
   static getStyles() {
@@ -31,5 +34,5 @@ class MapScene extends LitElement {
     `;
   }
 
-  render = () => html`<slot></slot>`
+  render = () => (this.map ? html`<three-text text="${this.map.root}"></three.text>` : html``)
 }

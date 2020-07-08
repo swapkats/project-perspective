@@ -42,7 +42,7 @@ class PerspectiveApp extends LitElement {
 
   render = () => html`<three-renderer clear-color="red" width="${this.width}" height="${this.height}">
             <three-scene>
-              <map-scene map="Music"><map-scene>
+              <map-scene map-id="Music"></map-scene>
             </three-scene>
             <three-camera></three-camera>
             <three-controls></three-controls>

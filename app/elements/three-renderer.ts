@@ -1,7 +1,10 @@
 import {
   LitElement, html, css, customElement, property, internalProperty,
 } from 'lit-element';
-import { WebGLRenderer } from 'three';
+import { WebGLRenderer, Scene, Camera } from 'three';
+import sceneContext from '../sceneContext';
+import cameraContext from '../cameraContext';
+import rendererContext from '../rendererContext';
 
 @customElement('three-renderer')
 export default class ThreeRenderer extends LitElement {
@@ -10,25 +13,12 @@ export default class ThreeRenderer extends LitElement {
     this.renderer = new WebGLRenderer();
     this.renderer.setClearColor(this.clearColor);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    rendererContext.setRenderer(this.renderer);
     this.appendChild(this.renderer.domElement);
-
-    // const render = () => {
-    //   renderer.render(scene, camera);
-    // };
-
-    // const animate = () => {
-    //   requestAnimationFrame(animate);
-
-    //   // controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
-
-    //   render();
-    // };
-
-    // animate();
   }
 
   @property({ type: String, attribute: 'clear-color' })
-  clearColor = 'red';
+  clearColor = '#000';
 
   @property({ type: Number, reflect: true })
   width = 0;
@@ -39,24 +29,22 @@ export default class ThreeRenderer extends LitElement {
   @internalProperty()
   renderer: WebGLRenderer;
 
-  animateRenderer = () => {
-    requestAnimationFrame(this.animateRenderer);
+  animateRenderer = (scene: Scene, camera: Camera) => {
+    requestAnimationFrame(() => this.animateRenderer(scene, camera));
 
-    // TODO: implement this
-    // this.renderer.render(scene, camera);
+    this.renderer.render(scene, camera);
   }
 
-  connectedCallback = () => {
-    super.connectedCallback();
+  firstUpdated = () => {
+    super.firstUpdated();
 
-    this.animateRenderer();
+    this.animateRenderer(sceneContext.useScene(), cameraContext.useCamera());
   }
 
   attributeChangedCallback = (name: string, old: any, value: any) => {
     super.attributeChangedCallback(name, old, value);
 
     console.debug(`${name} changed`);
-
     switch (name) {
       case 'clear-color':
         this.renderer.setClearColor(value);
