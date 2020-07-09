@@ -1,5 +1,5 @@
 import {
-  MeshBasicMaterial, DoubleSide, Mesh, ShapeBufferGeometry, Font,
+  MeshBasicMaterial, DoubleSide, Mesh, ShapeBufferGeometry, Font, TextGeometry,
 } from 'three';
 // @ts-ignore
 import { LitElement, customElement, property } from 'lit-element';
@@ -23,13 +23,14 @@ class ThreeText extends LitElement {
   posZ = 0;
 
   @property({ type: Number })
-  size = 10;
+  size = 5;
 
   @property()
   color = '#fff';
 
   firstUpdated = () => {
     super.firstUpdated();
+
     const matLite = new MeshBasicMaterial({
       color: this.color,
       transparent: true,
@@ -37,17 +38,14 @@ class ThreeText extends LitElement {
       side: DoubleSide,
     });
 
-    const shapes = font.generateShapes(this.text, this.size);
-
-    const geometry = new ShapeBufferGeometry(shapes);
-
-    // geometry.computeBoundingBox();
-
-    // const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+    const geometry = new TextGeometry(this.text, {
+      size: this.size,
+      height: 1,
+      curveSegments: 12,
+      font,
+    });
 
     geometry.translate(this.posX, this.posY, this.posZ);
-
-    // make shape ( N.B. edge view not visible )
 
     const textMesh = new Mesh(geometry, matLite);
 
