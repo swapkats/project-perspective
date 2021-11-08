@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "apollo-boost": "^0.4.9",
-    "apollo-server": "^2.15.1",
+    "apollo-server": "^2.25.3",
     "global": "^4.4.0",
     "graphql": "^14.7.0",
     "neo4j-driver": "^4.1.0",
